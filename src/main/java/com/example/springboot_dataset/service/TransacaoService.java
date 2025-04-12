@@ -44,4 +44,24 @@ public class TransacaoService {
         List<Transacao> transacoes = transacaoRepository.findByDataBetween(start, end);
         return ResponseEntity.ok(transacoes);
     }
+
+    public ResponseEntity<List<Transacao>> getTransacaoByBanco(String banco){
+        List<Transacao> transacoes = transacaoRepository.findByBancoContainingIgnoreCase(banco);
+        return ResponseEntity.ok(transacoes);
+    }
+
+    public ResponseEntity<List<Transacao>> getTransacaoByStatus(String status){
+        List<Transacao> transacoes = transacaoRepository.findByStatus(status);
+        return ResponseEntity.ok(transacoes);
+    }
+
+    public ResponseEntity<List<Transacao>> getTransacaoByAgencia(int agencia){
+        List<Transacao> transacoes = transacaoRepository.findByAgencia(agencia);
+        return ResponseEntity.ok(transacoes);
+    }
+
+    public ResponseEntity<List<Transacao>> getTransacaoByConta(int conta){
+        List<Transacao> transacoes = transacaoRepository.findByConta(conta);
+        return ResponseEntity.ok(transacoes);
+    }
 }

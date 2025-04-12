@@ -3,6 +3,8 @@ package com.example.springboot_dataset.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.time.LocalDateTime;
+
 @Document(collection = "transacoes")
 public class Transacao {
 
@@ -11,13 +13,12 @@ public class Transacao {
 
     private String tipo;
     private Double valor;
-    private String data;
+    private LocalDateTime data;
     private String descricao;
     private String banco;
     private int agencia;
     private int conta;
     private String status;
-
 
     public String getId() {
         return id;
@@ -43,11 +44,11 @@ public class Transacao {
         this.valor = valor;
     }
 
-    public String getData() {
+    public LocalDateTime getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(LocalDateTime data) {
         this.data = data;
     }
 

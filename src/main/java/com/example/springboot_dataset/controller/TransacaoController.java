@@ -48,4 +48,25 @@ public class TransacaoController {
             @RequestParam("end") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime end) {
         return transacaoService.getTransacaoByDataBetween(start, end);
     }
+
+    @GetMapping("/by-banco")
+    public ResponseEntity<List<Transacao>> getTransacaoByBanco(@RequestParam String banco){
+        return transacaoService.getTransacaoByBanco(banco);
+    }
+
+    @GetMapping("/by-status")
+    public ResponseEntity<List<Transacao>> getTransacaoByStatus(@RequestParam String status){
+        return transacaoService.getTransacaoByStatus(status);
+    }
+
+    @GetMapping("/by-agencia")
+    public ResponseEntity<List<Transacao>> getTransacaoByAgencia(@RequestParam int agencia){
+        return transacaoService.getTransacaoByAgencia(agencia);
+    }
+
+    @GetMapping("/by-conta")
+    public ResponseEntity<List<Transacao>> getTransacaoByConta(@RequestParam int conta){
+        return transacaoService.getTransacaoByConta(conta);
+    }
+
 }

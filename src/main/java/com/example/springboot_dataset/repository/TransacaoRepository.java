@@ -21,4 +21,8 @@ public interface TransacaoRepository extends MongoRepository<Transacao, String> 
     List<Transacao> findByValorBetween(Double min, Double max);
 
     List<Transacao> findByDataBetween(LocalDateTime startDate, LocalDateTime endDate);
+
+    List<Transacao> findByAgencia(int agencia);
+
+    List<Transacao> findByConta(int conta);
 }
